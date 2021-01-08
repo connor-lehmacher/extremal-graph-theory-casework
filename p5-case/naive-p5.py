@@ -5,7 +5,7 @@ import math
 
 #This is the graph we study
 n = 7
-m = 18
+m = 0 
 checkmaximality = True
 g = Graph(directed = True) 
 g.add_vertices(n)
@@ -33,15 +33,17 @@ for a in range(4,n):
 
 #loading bar code
 numberofcanidateedges = len(edges)
-numberofcombinations = math.factorial(numberofcanidateedges)/ (math.factorial(m-3) * math.factorial(numberofcanidateedges - m + 3))
-a = 0
-b = 0
-c = 1000
+numberofcombinations = math.factorial(numberofcanidateedges) / (math.factorial(m-3) * math.factorial(numberofcanidateedges - m + 3))
+forloopnumber = 0
+roundedforloopnumber = 0
+progressbarscale = 10
 
 #data structures necessary to algorithm
 edgestobeadded = []
 ifreegraphs = []
 
+#the building layers loop
+#TODO
 #the checking loop
 for x in combinations(edges, m - 3):
     edgestobeadded = list(x)
@@ -51,10 +53,10 @@ for x in combinations(edges, m - 3):
         ifreegraphs.append(g.copy())
     g.delete_edges(None)
     g.add_edges([(0,1),(1,2),(2,3)])
-    a = a + 1
-    if a/numberofcombinations * c >= b:
-        print(b/c)
-        b = b + 1
+    forloopnumber += 1
+    if forloopnumber/numberofcombinations * progressbarscale >= roundedforloopnumber:
+        print(roundedforloopnumber/progressbarscale)
+        roundedforloopnumber += 1
 
 
 #remove duplicates up to isomorphism and duality
