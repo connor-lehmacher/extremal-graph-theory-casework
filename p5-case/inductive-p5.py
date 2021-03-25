@@ -4,8 +4,8 @@ from random import random
 import math
 
 #Parameters for extremal calculation
-n = 7
-mtarget = 18
+n = 8
+mtarget = 24
 #g is our test graph
 g = Graph(directed = True) 
 g.add_vertices(n)
